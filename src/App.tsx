@@ -7,14 +7,16 @@ function App() {
   const [currentVersion, setCurrentVersion] = useState(null)
 
   useEffect(() => {
-    // Function to fetch the version from version.json
     const fetchVersion = async () => {
       try {
-        const response = await axios.get('/version.json')
+        const response = await axios.get('/version.json').then((data) => {
+          return data
+        })
         const latestVersion = response.data.version
 
+        console.log(currentVersion, latestVersion)
         if (currentVersion && currentVersion !== latestVersion) {
-          window.location.reload() // true parameter forces hard reload
+          window.location.reload()
         } else {
           setCurrentVersion(latestVersion)
         }
@@ -26,8 +28,6 @@ function App() {
     const intervalId = setInterval(fetchVersion, 60000)
 
     fetchVersion()
-
-    // Cleanup interval on component unmount
     return () => clearInterval(intervalId)
   }, [currentVersion])
 
