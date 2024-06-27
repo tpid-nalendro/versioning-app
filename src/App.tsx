@@ -14,7 +14,6 @@ function App() {
         })
         const latestVersion = response.data.version
 
-        console.log(currentVersion, latestVersion)
         if (currentVersion && currentVersion !== latestVersion) {
           window.location.reload()
         } else {
@@ -34,7 +33,12 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <img src={images.img_katt} className='App-logo' alt='logo' />
+        <img
+          src={images.img_katt}
+          className='App-logo'
+          alt='logo'
+          style={{ marginBottom: '4px' }}
+        />
         version:{currentVersion}
       </header>
     </div>
