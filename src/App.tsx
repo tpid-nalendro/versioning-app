@@ -35,7 +35,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <img src={images.img_katt} className='App-logo' alt='logo' />
-        version:
+        version:{currentVersion}
       </header>
     </div>
   )
