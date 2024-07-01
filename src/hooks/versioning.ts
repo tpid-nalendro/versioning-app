@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useVersioning(input: RequestInfo | URL) {
+const useVersioning = (input: RequestInfo | URL) => {
   const [currentVersion, setCurrentVersion] = useState(null)
 
   useEffect(() => {
@@ -21,14 +21,15 @@ export default function useVersioning(input: RequestInfo | URL) {
         console.error('Error fetching version:', error)
       }
     }
+    fetchVersion()
 
     const intervalId = setInterval(fetchVersion, 10 * 1000)
-    fetchVersion()
+
     return () => clearInterval(intervalId)
   }, [])
-
-  return currentVersion
 }
+
+export default useVersioning
 
 // export default function useVersioning(input: RequestInfo | URL) {
 //   const [currentVersion, setCurrentVersion] = useState(null)
