@@ -14,7 +14,7 @@ export default function App() {
           alt='logo'
           style={{ marginBottom: '4px' }}
         />
-        Version:{version}
+        Version:{version} 2222
       </header>
     </div>
   )

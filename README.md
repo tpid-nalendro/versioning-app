@@ -10,7 +10,7 @@ In the project directory this is essential command that you can run:
 
 Installing npm to new fresh server.
 
-### `npm run rebuild`
+### `npm run build`
 
 Add `./public/update-version.js` and `./public/version.json` for auto increment needed leave it with { "version": "0.0.1" }
 
@@ -18,7 +18,7 @@ To auto increment version based on build phase execute `npm run rebuild`
 
 This affect to auto window.reload() on every main app.ts rendered when version are different from the before version.
 
-### `npm run build`
+`+++++++++++++++++++++++++++++++++++++++++++++++++ versioning ++++++++++++++++++++++++++++++++++++++++++++++++`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
