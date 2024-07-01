@@ -24,7 +24,6 @@ const useVersioning = (input: RequestInfo | URL) => {
     fetchVersion()
 
     const intervalId = setInterval(fetchVersion, 10 * 1000)
-
     return () => clearInterval(intervalId)
   }, [])
 }
