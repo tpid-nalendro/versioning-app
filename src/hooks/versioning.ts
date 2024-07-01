@@ -12,6 +12,7 @@ export default function useVersioning(input: RequestInfo | URL) {
         const latestVersion = response.version
 
         if (currentVersion && currentVersion !== latestVersion) {
+          console.log(currentVersion, latestVersion, 'must reload here')
           window.location.reload()
         } else {
           setCurrentVersion(latestVersion)
