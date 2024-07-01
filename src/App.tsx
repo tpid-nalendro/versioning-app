@@ -1,35 +1,9 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 import { images } from './assets/images'
-import axios from 'axios'
+import useVersioning from './hooks/versioning'
 
-function App() {
-  const [currentVersion, setCurrentVersion] = useState(null)
-
-  useEffect(() => {
-    const fetchVersion = async () => {
-      try {
-        const response = await axios.get('/version.json').then((data) => {
-          return data
-        })
-        const latestVersion = response.data.version
-
-        if (currentVersion && currentVersion !== latestVersion) {
-          window.location.reload()
-        } else {
-          setCurrentVersion(latestVersion)
-        }
-      } catch (error) {
-        console.error('Error fetching version:', error)
-      }
-    }
-
-    const intervalId = setInterval(fetchVersion, 60000)
-
-    fetchVersion()
-    return () => clearInterval(intervalId)
-  }, [currentVersion])
-
+export default function App() {
+  const version = useVersioning('./version.json');
   return (
     <div className='App'>
       <header className='App-header'>
@@ -39,10 +13,8 @@ function App() {
           alt='logo'
           style={{ marginBottom: '4px' }}
         />
-        version:{currentVersion}
+        version:{version}
       </header>
     </div>
   )
 }
-
-export default App
