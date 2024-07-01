@@ -5,7 +5,6 @@ import useVersioning from './hooks/versioning'
 export default function App() {
   const version = useVersioning('/version.json')
 
-  console.log(version)
   return (
     <div className='App'>
       <header className='App-header'>

@@ -20,6 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node ./public/update-version.js && react-scripts build",
+    "prebuild": "node ./public/update-version.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
